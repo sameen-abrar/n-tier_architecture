@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BloodDonateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="donor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="g_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="group" Relationship="Self.FK_donors_groups" FromRole="donors" ToRole="groups" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="donors" Relationship="Self.FK_donors_groups" FromRole="groups" ToRole="donors" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_donors_groups">
+    <End Role="groups" Type="Self.group" Multiplicity="1" />
+    <End Role="donors" Type="Self.donor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="groups">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="donors">
+        <PropertyRef Name="g_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BloodDonateEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="donors" EntityType="Self.donor" />
+    <EntitySet Name="groups" EntityType="Self.group" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_donors_groups" Association="Self.FK_donors_groups">
+      <End Role="groups" EntitySet="groups" />
+      <End Role="donors" EntitySet="donors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

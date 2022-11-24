@@ -21,7 +21,7 @@ namespace DAL
         {
             return new DonorRepo();
         }
-        public static IRepo<user, string, user> UserDataAccess()
+        public static IRepo<user, int, user> UserDataAccess()
         {
             return new UserRepo(); 
         }

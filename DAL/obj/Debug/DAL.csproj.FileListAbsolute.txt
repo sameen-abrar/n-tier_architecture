@@ -1,0 +1,12 @@
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\DAL.dll.config
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\DAL.dll
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\DAL.pdb
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\EntityFramework.dll
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\EntityFramework.xml
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\obj\Debug\DAL.dll
+D:\University\Semester 9\.NET\.NET final\final codes\blood donate assignment\DAL\obj\Debug\DAL.pdb

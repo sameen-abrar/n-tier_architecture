@@ -10,7 +10,7 @@ namespace DAL.Interfaces
     {
         List<CLASS> Get();
         CLASS Get(ID id);
-        bool Add(CLASS obj);
+        CLASS Add(CLASS obj);
         bool Delete(ID id);
         bool update(CLASS obj);
 

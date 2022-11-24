@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BloodDonateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="donors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="g_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uname" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_donors_groups">
+    <End Role="groups" Type="Self.groups" Multiplicity="1" />
+    <End Role="donors" Type="Self.donors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="groups">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="donors">
+        <PropertyRef Name="g_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BloodDonateModelStoreContainer">
+    <EntitySet Name="donors" EntityType="Self.donors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_donors_groups" Association="Self.FK_donors_groups">
+      <End Role="groups" EntitySet="groups" />
+      <End Role="donors" EntitySet="donors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

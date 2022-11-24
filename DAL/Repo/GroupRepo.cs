@@ -10,29 +10,40 @@ namespace DAL.Repo
 {
     internal class GroupRepo : IRepo<group, int, bool>
     {
-        public bool Add(group obj)
+        BloodDonateEntities1 db;
+        internal GroupRepo()
         {
-            throw new NotImplementedException();
+            db = new BloodDonateEntities1();
         }
-
+        public group Add(group obj)
+        {
+            db.groups.Add(obj);
+            db.SaveChanges();
+            return obj;
+        }
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var db_obj = Get(id);
+            db.groups.Remove(db_obj);
+            return db.SaveChanges() > 0;
         }
 
         public List<group> Get()
         {
-            throw new NotImplementedException();
+            return db.groups.ToList();
         }
 
         public group Get(int id)
         {
-            throw new NotImplementedException();
+            return db.groups.Find(id);
         }
 
         public bool update(group obj)
         {
-            throw new NotImplementedException();
+            var db_obj = Get(obj.id);
+            db.Entry(db_obj).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
         }
+
     }
 }

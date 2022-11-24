@@ -8,36 +8,51 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class UserRepo : IRepo<user, string, user>, IAuth
+    internal class UserRepo : IRepo<user, int, user>, IAuth
     {
-        public bool Add(user obj)
+        BloodDonateEntities1 db;
+        internal UserRepo()
         {
-            throw new NotImplementedException();
+            db = new BloodDonateEntities1();
+        }
+        public user Add(user obj)
+        {
+            db.users.Add(obj);
+            db.SaveChanges();
+            return obj;
         }
 
         public user Authenticate(string username, string password)
         {
-            throw new NotImplementedException();
+            var data = db.users.FirstOrDefault(u => u.uname.Equals(username) && u.password.Equals(password));
+            if (data != null)
+                return data;
+            else
+                return null;
         }
 
-        public bool Delete(string id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var db_obj = Get(id);
+            db.users.Remove(db_obj);
+            return db.SaveChanges() > 0;
         }
 
         public List<user> Get()
         {
-            throw new NotImplementedException();
+            return db.users.ToList();
         }
 
-        public user Get(string id)
+        public user Get(int id)
         {
-            throw new NotImplementedException();
+            return db.users.Find(id);
         }
 
         public bool update(user obj)
         {
-            throw new NotImplementedException();
+            var db_obj = db.users.Find(obj.uname);
+            db.Entry(db_obj).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
         }
     }
 }

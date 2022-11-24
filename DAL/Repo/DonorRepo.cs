@@ -10,29 +10,39 @@ namespace DAL.Repo
 {
     internal class DonorRepo : IRepo<donor, int, donor>
     {
-        public bool Add(donor obj)
+        BloodDonateEntities1 db;
+        internal DonorRepo()
         {
-            throw new NotImplementedException();
+            db = new BloodDonateEntities1();
         }
-
+        public donor Add(donor obj)
+        {
+            db.donors.Add(obj);
+            db.SaveChanges();
+            return obj;
+        }
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var db_obj = Get(id);
+            db.donors.Remove(db_obj);
+            return db.SaveChanges() > 0;
         }
 
         public List<donor> Get()
         {
-            throw new NotImplementedException();
+            return db.donors.ToList();
         }
 
         public donor Get(int id)
         {
-            throw new NotImplementedException();
+            return db.donors.Find(id);
         }
 
         public bool update(donor obj)
         {
-            throw new NotImplementedException();
+            var db_obj = Get(obj.id);
+            db.Entry(db_obj).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
         }
     }
 }

@@ -51,67 +51,62 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessFactory.cs" />
-    <Compile Include="EF\BloddDonate.Context.cs">
+    <Compile Include="EF\BloodDonate.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BloddDonate.Context.tt</DependentUpon>
+      <DependentUpon>BloodDonate.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\BloddDonate.cs">
+    <Compile Include="EF\BloodDonate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BloddDonate.tt</DependentUpon>
+      <DependentUpon>BloodDonate.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\BloddDonate.Designer.cs">
+    <Compile Include="EF\BloodDonate.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BloddDonate.edmx</DependentUpon>
+      <DependentUpon>BloodDonate.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\donor.cs">
-      <DependentUpon>BloddDonate.tt</DependentUpon>
+      <DependentUpon>BloodDonate.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\group.cs">
-      <DependentUpon>BloddDonate.tt</DependentUpon>
+      <DependentUpon>BloodDonate.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\user.cs">
-      <DependentUpon>BloddDonate.tt</DependentUpon>
+      <DependentUpon>BloodDonate.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAuth.cs" />
     <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\DonorRepo.cs" />
     <Compile Include="Repo\GroupRepo.cs" />
-    <Compile Include="Repo\IAuth.cs" />
-    <Compile Include="Repo\IRepo.cs" />
     <Compile Include="Repo\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="EF\BloddDonate.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BloddDonate.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="EF\BloddDonate.edmx.diagram">
-      <DependentUpon>BloddDonate.edmx</DependentUpon>
+    <EntityDeploy Include="EF\BloodDonate.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BloodDonate.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\BloodDonate.edmx.diagram">
+      <DependentUpon>BloodDonate.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EF\BloddDonate.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BloddDonate.Context.cs</LastGenOutput>
-      <DependentUpon>BloddDonate.edmx</DependentUpon>
-    </Content>
-    <Content Include="EF\BloddDonate.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BloddDonate.edmx</DependentUpon>
-      <LastGenOutput>BloddDonate.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="EF\BloodDonate.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BloodDonate.edmx</DependentUpon>
+      <LastGenOutput>BloodDonate.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\BloodDonate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BloodDonate.edmx</DependentUpon>
+      <LastGenOutput>BloodDonate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
